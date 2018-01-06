@@ -1,0 +1,46 @@
+"""Here is my solution for this problem. First i had to isolate the arrays by making a new list without integers. 
+  I used [x for x in matrix if type(x) != int] however it might be better to use [x for x in matrix if type(x) == list]. 
+  then i used a loop starting at zero and ending at the end of the matrix. 
+  sum1+= smatrix[i][i]. This means we add smatrix[0][0] in the first iteration.
+  so smatrix[0][0] will equal 11. Refer to matrix below. then the second iteration is smatrix[1][1] and so on. This is how we get the 
+  diagonal sum starting from the top of a matrix and working your way down. For this example it goes smatrix[0][0] then [1][1] then [2][2].
+  
+  For sum two I had to take advantage of the for loop incrementing and the the length of the smatrix.
+  
+  sum2 += smatrix[length-1-i][i]
+  the first iteration looks like this.
+  
+  smatrix[3-1-0][0] = smatrix[2][0] = 10
+  This is getting the diagonal from the bottom up
+  next is: smatrix[3-1-1][1] = 5
+  finally smatrix [3-2-1][2] = [0][2] = 4
+ 
+
+
+
+def matrix_difference(matrix):
+    sum1 = 0
+    sum2 = 0
+    
+    
+    # smatrix = [x for x in matrix if type(x)==list]
+    smatrix = [x for x in matrix if type(x) != int]
+    length = len(smatrix)
+    
+    for i in range(0,len(smatrix)):
+        sum1 += smatrix[i][i]
+        sum2 += smatrix[length-1-i][i]
+        
+            
+        
+  
+    return abs(sum1-sum2)
+matrix = [3,
+          [11,12,4],
+          [4,5,6],
+          [10,8,-12]
+          ]
+
+
+
+print matrix_difference(matrix)

@@ -1,0 +1,8 @@
+def birthdayCakeCandles(n, ar):
+    # Complete this functionans = str(max(ar))
+    ans = str(max(ar))
+    nstr = ""
+    for i in ar:
+        nstr = nstr + str(i) + ','
+    
+    return nstr.count(ans)
